@@ -20,10 +20,10 @@ class Song < ActiveRecord::Base
     self.genre ? self.genre.name : nil
   end
 
-  def note_content=(contents)
+  def note_contents=(contents)
     contents.each do |content|
-      note = Note.find(content)
-      self.notes << note
+      # binding.pry
+      self.notes.build(content: content)
     end
   end
 
